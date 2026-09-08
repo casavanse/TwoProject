@@ -1,3 +1,7 @@
+#Yael Ilan and Noam Shmuely
+#331477455
+#331641753
+
 import soldier
 import game_field
 import pygame
