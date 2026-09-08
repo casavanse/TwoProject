@@ -2,6 +2,7 @@ import soldier
 import game_field
 import pygame
 import consts
+import screen
 
 soldier.create_soldier()
 game_field.create()
@@ -16,9 +17,10 @@ def main():
         soldier.move(direction)
         legs=soldier.get_soldier_feet()
         body=soldier.get_soldier_body()
-        if game_field.hit_mine(legs)
-        
-        if game_field.hit_flag(body)
+        if game_field.hit_mine(legs):
+           screen.lose_message()
+        if game_field.hit_flag(body):
+            screen.win_message()
 
         direction = consts.DIDNT_MOVE
 
