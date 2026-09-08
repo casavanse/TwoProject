@@ -24,6 +24,8 @@ def can_move(direction):
 
 
 def move(direction):
+    if not can_move(direction):
+        return
     global soldier
     soldier["row"] += direction[0]
     soldier["col"] += direction[1]

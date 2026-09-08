@@ -3,6 +3,7 @@ import game_field
 import pygame
 import consts
 import screen
+import time
 
 soldier.create_soldier()
 game_field.create()
@@ -57,6 +58,9 @@ def handle_user_events():
                 soldier.move(direction)
 
             if event.key == pygame.K_RETURN:
+
                 screen.draw_mines()
 
-main()
+
+if __name__ == "__main__":
+    main()

@@ -1,5 +1,4 @@
 import random
-
 import pygame
 import consts
 import game_field
@@ -37,7 +36,6 @@ def draw_mines():
     screen.blit(soldier_img, (soldier_x, soldier_y))
     pygame.display.update()
     pygame.time.wait(1000)
-    draw_game()
 
 
 def draw_game():

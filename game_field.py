@@ -24,7 +24,7 @@ def plant_mines():
     global grid
     mines_planted = 0
     while mines_planted < consts.BOARD_ROWS:
-        row = random.randint(0, consts.BOARD_ROWS - 1)
+        row = random.randint(3, consts.BOARD_ROWS - 1)
         col = random.randint(0, consts.BOARD_COLS - 1)
         if can_place_mine(row, col):
             for cell in range(consts.MINE_COLS):
