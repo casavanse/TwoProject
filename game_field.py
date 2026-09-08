@@ -5,6 +5,11 @@ import random
 grid = []
 flag_row = consts.BOARD_ROWS - consts.FLAG_ROWS
 flag_col = consts.BOARD_COLS - consts.FLAG_COLS
+start_position = [(0, 0), (0, 1),
+                  (1, 0), (1, 1),
+                  (2, 0), (2, 1),
+                  (3, 0), (3, 1)]
+
 
 def create():
     global grid
@@ -13,6 +18,7 @@ def create():
         for col in range(consts.FLAG_COLS):
             grid[row + flag_row][col + flag_col] = consts.FLAG_CELL
     plant_mines()
+
 
 def plant_mines():
     global grid
@@ -26,13 +32,14 @@ def plant_mines():
             mines_planted += 1
 
 
-def can_place_mine( row, col):
-    if row == 0 and col == 0:
+def can_place_mine(row, col):
+    if (row, col) in start_position:
         return False
     for cell in range(consts.MINE_COLS):
         if col + cell >= consts.BOARD_COLS or grid[row][col + cell] != consts.EMPTY_CELL:
             return False
     return True
+
 
 def hit_mine(legs):
     for leg in legs:
@@ -40,15 +47,25 @@ def hit_mine(legs):
             return True
     return False
 
+
 def hit_flag(body):
     for cell in body:
-        if grid[cell[0]][cell[1]] == consts.FLAG_CELL :
+        if grid[cell[0]][cell[1]] == consts.FLAG_CELL:
             return True
     return False
+
+
+def should_plant_mine(row, col):
+    if grid[row][col] == consts.MINE_CELL:
+        if col == 0 or grid[row][col - 1] != consts.MINE_CELL:
+            return True
+    return False
+
 
 def grid_print():
     for row in grid:
         print(row)
+
 
 create()
 grid_print()
