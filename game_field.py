@@ -55,7 +55,7 @@ def hit_flag(body):
     return False
 
 
-def should_plant_mine(row, col):
+def should_draw_mine(row, col):
     if grid[row][col] == consts.MINE_CELL:
         if col == 0 or grid[row][col - 1] != consts.MINE_CELL:
             return True

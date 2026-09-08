@@ -29,7 +29,7 @@ def draw_mines():
             y = consts.CELL_SIZE * row
             rect = pygame.Rect(x, y, consts.CELL_SIZE, consts.CELL_SIZE)
             pygame.draw.rect(screen, consts.WHITE, rect, 1)
-            if game_field.should_plant_mine(row, col):
+            if game_field.should_draw_mine(row, col):
                 screen.blit(mine, (x, y))
     soldier_x = soldier.soldier["screen_x"]
     soldier_y = soldier.soldier["screen_y"]
