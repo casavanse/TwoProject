@@ -15,6 +15,7 @@ pygame.init()
 
 
 def main():
+    global direction
     while True:
         handle_user_events()
         soldier.move(direction)
