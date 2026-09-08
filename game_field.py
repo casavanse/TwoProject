@@ -42,7 +42,7 @@ def hit_mine(legs):
 
 def hit_flag(body):
     for cell in body:
-        if grid[cell[0]][cell[1]] == consts.FLAG_CELL:]:
+        if grid[cell[0]][cell[1]] == consts.FLAG_CELL :
             return True
     return False
 
