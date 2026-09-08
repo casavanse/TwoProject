@@ -1,22 +1,43 @@
-# This is a sample Python script.
+import soldier
+import game_field
+import pygame
+import consts
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+
+
+soldier.create_soldier()
+game_field.create()
 
 """
-start soldier
-start field
 start screen
-pygame init
-while True:
-    onkey:
-        quit: quit
-        move:
-            try to move (game_field)
-
-    check if win
-    update screen
-
 """
+direction=(0,0)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+pygame.init()
+def main():
+   while True:
+       handle_user_events()
+       soldier.move(direction)
+
+
+       direction=consts.DIDNT_MOVE
+
+
+
+
+def handle_user_events():
+    global direction
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+        if event.key == pygame.K_LEFT:
+            direction=consts.LEFT
+        if event.key == pygame.K_RIGHT:
+            direction=consts.RIGHT
+        if event.key == pygame.K_UP:
+            direction=consts.UP
+        if event.key == pygame.K_DOWN:
+            direction=consts.DOWN
+        if event.key == pygame.K_RETURN:
+            game_field.draw_mines()
