@@ -75,3 +75,8 @@ def win_message():
 def lose_message():
     draw_message(consts.LOSE_MESSAGE, consts.BLACK)
 
+
+pygame.init()
+soldier.create_soldier()
+draw_mines()
+pygame.time.wait(1000)
