@@ -13,19 +13,24 @@ pygame.init()
 
 def main():
     global direction
+    screen.draw_game()
     while True:
         handle_user_events()
-        soldier.move(direction)
         legs = soldier.get_soldier_feet()
         body = soldier.get_soldier_body()
 
         if game_field.hit_mine(legs):
             screen.lose_message()
+            pygame.quit()
+            return
 
         if game_field.hit_flag(body):
             screen.win_message()
+            pygame.quit()
+            return
 
         direction = consts.DIDNT_MOVE
+        screen.draw_game()
 
 
 def handle_user_events():
@@ -33,13 +38,25 @@ def handle_user_events():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
-        if event.key == pygame.K_LEFT:
-            direction = consts.LEFT
-        if event.key == pygame.K_RIGHT:
-            direction = consts.RIGHT
-        if event.key == pygame.K_UP:
-            direction = consts.UP
-        if event.key == pygame.K_DOWN:
-            direction = consts.DOWN
-        if event.key == pygame.K_RETURN:
-            screen.draw_mines()
+        if event.type == pygame.KEYDOWN:
+
+            if event.key == pygame.K_LEFT:
+                direction = consts.LEFT
+                soldier.move(direction)
+
+            if event.key == pygame.K_RIGHT:
+                direction = consts.RIGHT
+                soldier.move(direction)
+
+            if event.key == pygame.K_UP:
+                direction = consts.UP
+                soldier.move(direction)
+
+            if event.key == pygame.K_DOWN:
+                direction = consts.DOWN
+                soldier.move(direction)
+
+            if event.key == pygame.K_RETURN:
+                screen.draw_mines()
+
+main()

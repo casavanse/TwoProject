@@ -62,10 +62,3 @@ def should_plant_mine(row, col):
     return False
 
 
-def grid_print():
-    for row in grid:
-        print(row)
-
-
-create()
-grid_print()
