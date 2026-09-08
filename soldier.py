@@ -19,6 +19,7 @@ def can_move(direction):
     if direction == consts.RIGHT:
         if soldier["col"] + 1 < consts.BOARD_COLS:
             return True
+    return False
 
 
 
