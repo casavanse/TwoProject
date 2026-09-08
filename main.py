@@ -10,15 +10,18 @@ direction = (0, 0)
 
 pygame.init()
 
+
 def main():
     global direction
     while True:
         handle_user_events()
         soldier.move(direction)
-        legs=soldier.get_soldier_feet()
-        body=soldier.get_soldier_body()
+        legs = soldier.get_soldier_feet()
+        body = soldier.get_soldier_body()
+
         if game_field.hit_mine(legs):
-           screen.lose_message()
+            screen.lose_message()
+
         if game_field.hit_flag(body):
             screen.win_message()
 
@@ -39,4 +42,4 @@ def handle_user_events():
         if event.key == pygame.K_DOWN:
             direction = consts.DOWN
         if event.key == pygame.K_RETURN:
-            game_field.draw_mines()
+            screen.draw_mines()
