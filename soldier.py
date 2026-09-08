@@ -4,7 +4,7 @@ soldier = {}
 
 def create_soldier():
     global soldier
-    soldier = {"row": 0, "col": 0}
+    soldier = {"row": 0, "col": 0, "screen_x":0,"screen_y":0}
 
 def can_move(direction):
     if direction == consts.UP:
@@ -24,17 +24,10 @@ def can_move(direction):
 
 def move(direction):
     global soldier
-    if direction == consts.UP and can_move(direction):
-        soldier["row"] += 1
-
-    elif direction == consts.DOWN and can_move(direction):
-        soldier["row"] -= 1
-
-    elif direction == consts.LEFT and can_move(direction):
-        soldier["col"] -= 1
-
-    elif direction == consts.RIGHT and can_move(direction):
-        soldier["col"] += 1
+    soldier["row"] += direction[0]
+    soldier["col"] += direction[1]
+    soldier["screen_y"] = soldier["row"]*consts.CELL_SIZE
+    soldier["screen_x"] = soldier["col"]*consts.CELL_SIZE
 
 
 def get_soldier_body():
@@ -53,6 +46,3 @@ def get_soldier_feet():
     soldier_feet = [(soldier["row"]+3, soldier["col"]),
                     (soldier["row"]+3, soldier["col"]+1)]
     return soldier_feet
-
-
-
