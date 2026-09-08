@@ -33,3 +33,4 @@ RIGHT = (0, 1)
 UP = (-1, 0)
 DOWN = (1, 0)
 DIDNT_MOVE = (0, 0)
+a = 3
