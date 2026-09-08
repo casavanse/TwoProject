@@ -5,20 +5,20 @@ import consts
 
 soldier.create_soldier()
 game_field.create()
-
-"""
-start screen
-"""
 direction = (0, 0)
 
 pygame.init()
-
 
 def main():
     global direction
     while True:
         handle_user_events()
         soldier.move(direction)
+        legs=soldier.get_soldier_feet()
+        body=soldier.get_soldier_body()
+        if game_field.hit_mine(legs)
+        
+        if game_field.hit_flag(body)
 
         direction = consts.DIDNT_MOVE
 
