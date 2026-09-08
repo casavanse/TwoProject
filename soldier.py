@@ -8,16 +8,16 @@ def create_soldier():
 
 def can_move(direction):
     if direction == consts.UP:
-        if soldier["row"] <= 0:
+        if soldier["row"] == 0:
             return False
     if direction == consts.DOWN:
-        if soldier["row"]+3 >= consts.BOARD_ROWS:
+        if soldier["row"]+3 >= consts.BOARD_ROWS-1:
             return False
     if direction == consts.LEFT:
-        if soldier["col"] <= 0:
+        if soldier["col"] == 0:
             return False
     if direction == consts.RIGHT:
-        if soldier["col"] + 1 >= consts.BOARD_COLS:
+        if soldier["col"] + 1 >= consts.BOARD_COLS-1:
             return False
     return True
 
