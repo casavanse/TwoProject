@@ -58,8 +58,8 @@ def handle_user_events():
                 soldier.move(direction)
 
             if event.key == pygame.K_RETURN:
-
                 screen.draw_mines()
+                pygame.event.clear()
 
 
 if __name__ == "__main__":
