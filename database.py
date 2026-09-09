@@ -4,8 +4,8 @@ import json
 
 
 def save(grid, index):
-    df = pd.DataFrame(grid)
     db = load_db()
+    df = pd.DataFrame(grid)
     jdb = df.to_json()
     db[index] = jdb
     save_db(db)
@@ -14,8 +14,9 @@ def save(grid, index):
 
 def load(index):
     db = load_db()
-    df = json.loads(db[index])
-    if df == {}:
+    i = db[index]
+    df = json.loads(i)
+    if df == []:
         return None
     d = pd.DataFrame(df)
     grid = d.values.tolist()
@@ -32,6 +33,7 @@ grid = [[1, 2, 3],
 def start_db():
     grid = []
     df = pd.DataFrame(grid)
+    jdf = df.to_json(orient="records")
     with open("data.json", "a") as f:
         pass
     with open("data.json", "r") as f:
@@ -39,19 +41,21 @@ def start_db():
     if len(lines) == 0:
         with open("data.json", "a") as f:
             for _ in range(9):
-                jdf = df.to_json()
-                f.write(jdf + " ")
+                f.write(jdf)
+                f.write("\n")
 
 
 def load_db():
     with open("data.json", "r") as f:
         lines = f.readlines()
-        return lines[0].split(" ")
+    for i in range(len(lines)):
+        lines[i] = lines[i][:-1]
+    return lines
 
 
 def save_db(lines):
     with open("data.json", "w") as f:
         for line in lines:
-            f.write(line + " ")
+            f.write(line + "\n")
 
-
+start_db()

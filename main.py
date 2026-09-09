@@ -52,6 +52,7 @@ def main():
         if guard.hit_guard():
             screen.lose_message()
             pygame.quit()
+            return
 
         if iteration == 200:
             guard.move()
@@ -82,6 +83,7 @@ def handle_user_events():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
+            return
 
         if event.type == pygame.KEYDOWN:
 
