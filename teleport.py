@@ -9,20 +9,20 @@ grid = game_field.grid()
 
 def plant_teleports():
     global grid
-    mines_planted = 0
-    while mines_planted < consts.MINES_COUNT:
+    teleports_planted = 0
+    while teleports_planted < consts.NUM_OF_TELEPORTS:
         row = random.randint(4, consts.BOARD_ROWS - 4)
         col = random.randint(0, consts.BOARD_COLS - 1)
-        if can_place_mine(row, col):
-            for cell in range(consts.MINE_COLS):
-                grid[row][col + cell] = consts.MINE_CELL
-            mines_planted += 1
+        if can_place_teleport(row, col):
+            for cell in range(consts.TELEPORT_COLS):
+                grid[row][col + cell] = consts.TELEPORT_CELL
+            teleports_planted += 1
 
 
 def can_place_teleport(row, col):
     if (row, col) in start_position:
         return False
-    for cell in range (consts.MINE_COLS):
+    for cell in range (consts.TELEPORT_COLS):
         if col + cell >= consts.BOARD_COLS or grid[row][col + cell] != consts.EMPTY_CELL:
             return False
     return True
