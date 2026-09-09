@@ -47,6 +47,8 @@ def save(index):
 
 def load(index):
     new_grid = database.load(index)
+    if new_grid is None:
+        return
     game_field.remove_soldier_from_grid(new_grid)
 
 

@@ -15,6 +15,8 @@ def save(grid, index):
 def load(index):
     db = load_db()
     df = json.loads(db[index])
+    if df == {}:
+        return None
     d = pd.DataFrame(df)
     grid = d.values.tolist()
     return grid
@@ -51,6 +53,5 @@ def save_db(lines):
     with open("data.json", "w") as f:
         for line in lines:
             f.write(line + " ")
-
 
 
