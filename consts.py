@@ -42,4 +42,5 @@ KEYS_DICT = {pygame.K_1: 0, pygame.K_2: 1, pygame.K_3: 2, pygame.K_4: 3, pygame.
              pygame.K_8: 7, pygame.K_9: 8}
 NUM_OF_TELEPORTS = 5
 GUARD_ROWS = BOARD_ROWS // 2
+GUARD_START_COLS = 0
 
