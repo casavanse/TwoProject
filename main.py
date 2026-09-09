@@ -35,7 +35,14 @@ def main():
 
         direction = consts.DIDNT_MOVE
         screen.draw_game()
+        
+def save(index)
+     grid_save = game_field.add_soldier_to_grid()
+     database.save(grid_save,index)
 
+def load(index)
+     new_grid = database.load(index)
+     game_field.remove = new_grid
 
 def handle_user_events():
     global direction
@@ -63,18 +70,17 @@ def handle_user_events():
             if event.key == pygame.K_RETURN:
                 screen.draw_mines()
                 pygame.event.clear()
-
             
-            if event.key in consts.KEYS_DICT:
+            if event.key in consts.KEYS_DICT.keys():
                 start = time.time()
             if event.type == pygame.KEYUP:
-                if event.key in consts.KEYS_DICT:
+                if event.key in consts.KEYS_DICT.keys():
                     end = time.time() 
                     duration = start - end
-                    if duration <= consts.ONE_SECOND
-                         
-                
-                    elif duration > consts.ONE_SECOND
+                    if duration <= consts.ONE_SECOND:
+                         save(consts.KEYS_DICT[event.key])
+                    elif duration > consts.ONE_SECOND:
+                         load(consts.KEYS_DICT[event.key])
 
 
 if __name__ == "__main__":
