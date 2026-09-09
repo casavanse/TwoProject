@@ -33,3 +33,11 @@ def hit_teleport(legs):
         if grid[leg[0]][leg[1]] == consts.TELEPORT_CELL:
             return True
     return False
+
+
+def should_draw_teleport(row, col):
+    if grid[row][col] == consts.TELEPORT_CELL:
+        if col == 0 or grid[row][col - 1] != consts.TELEPORT_CELL:
+            return True
+    return False
+

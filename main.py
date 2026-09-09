@@ -41,6 +41,7 @@ def main():
             screen.lose_message()
             pygame.quit()
 
+
         direction = consts.DIDNT_MOVE
         screen.draw_game()
 
