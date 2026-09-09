@@ -64,4 +64,17 @@ def should_draw_mine(row, col):
 
 def add_soldier_to_grid():
     sol = soldier.soldier
-    grid[sol["row"]][sol["col"]]=consts.SOLDIER_CELL
+    if grid[sol["row"]][sol["col"]]==consts.EMPTY_CELL:
+         grid[sol["row"]][sol["col"]]=consts.SOLDIER_CELL
+  
+def remove_soldier_from_grid():
+    sol = soldier.soldier
+    for i in range [len(range)]:
+      for j in i [len(i)]:
+        if grid[sol[i][j]=consts.SOLDIER_CELL:
+          grid[sol["row"]][sol["col"]]==consts.EMPTY_CELL
+          load_soldier(i,j)
+
+
+  
+  
