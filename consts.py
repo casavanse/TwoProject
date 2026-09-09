@@ -15,6 +15,7 @@ MINE_COLS = 3
 EMPTY_CELL = 0
 MINE_CELL = 1
 FLAG_CELL = 2
+SOLDIER_CELL = 3
 LEFT = (0, -1)
 RIGHT = (0, 1)
 UP = (1, 0)
@@ -33,5 +34,6 @@ RIGHT = (0, 1)
 UP = (-1, 0)
 DOWN = (1, 0)
 DIDNT_MOVE = (0, 0)
+ONE_SECOND = 1000
+KEYS_DICT={pygame.K_1:1,pygame.K_2:2,pygame.K_3:3,pygame.K_4:4,pygame.K_5:5,pygame.K_6:6,pygame.K_7:7,pygame.K_8:8,,pygame.K_9:9}
 
-https://stackoverflow.com/questions/40649634/determine-length-of-keypress-in-python
