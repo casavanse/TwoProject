@@ -46,6 +46,7 @@ def main():
             guard.move()
             iteration = 0
 
+
         direction = consts.DIDNT_MOVE
         screen.draw_game()
         iteration += 1
