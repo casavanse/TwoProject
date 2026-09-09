@@ -3,6 +3,7 @@ import pygame
 import consts
 import game_field
 import soldier
+from guard import guard
 
 screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 
@@ -17,6 +18,9 @@ grass_img = pygame.transform.scale(grass_img, (consts.CELL_SIZE * 2, consts.CELL
 
 flag_img = pygame.image.load("flag.png").convert_alpha()
 flag_img = pygame.transform.scale(flag_img, (consts.CELL_SIZE * 4, consts.CELL_SIZE * 3))
+
+guard_img = pygame.image.load("guard.png").convert_alpha()
+guard_img = pygame.transform.scale(guard_img, (consts.CELL_SIZE * 2, consts.CELL_SIZE * 4))
 
 grasses = []
 
@@ -38,6 +42,7 @@ def draw_mines():
     pygame.time.wait(1000)
 
 
+
 def draw_game():
     screen.fill(consts.GREEN)
 
@@ -50,6 +55,10 @@ def draw_game():
     soldier_x = soldier.soldier["screen_x"]
     soldier_y = soldier.soldier["screen_y"]
     screen.blit(soldier_img, (soldier_x, soldier_y))
+
+    guard_x = guard.guard["screen_x"]
+    guard_y = guard.guard["screen_y"]
+    screen.blit(guard_img, (guard_x, guard_y))
 
     flag_x = consts.WINDOW_WIDTH - consts.CELL_SIZE * 4
     flag_y = consts.WINDOW_HEIGHT - consts.CELL_SIZE * 3
