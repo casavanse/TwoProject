@@ -1,7 +1,7 @@
 # Yael Ilan and Noam Shmuely
 # 331477455
 # 331641753
-
+import guard
 import soldier
 import game_field
 import pygame
@@ -13,6 +13,7 @@ import database
 start = 0
 soldier.create_soldier()
 game_field.create()
+guard.create()
 direction = (0, 0)
 
 pygame.init()
@@ -35,6 +36,10 @@ def main():
             screen.win_message()
             pygame.quit()
             return
+
+        if guard.hit_guard():
+            screen.lose_message()
+            pygame.quit()
 
         direction = consts.DIDNT_MOVE
         screen.draw_game()
