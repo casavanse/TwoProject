@@ -20,6 +20,7 @@ def create():
         for col in range(consts.FLAG_COLS):
             grid[row + flag_row][col + flag_col] = consts.FLAG_CELL
     plant_mines()
+    teleport.plant_teleports()
 
 
 def plant_mines():
