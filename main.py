@@ -49,9 +49,13 @@ def load(index):
 
 def handle_user_events():
     global direction
+    global start
+
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
+
         if event.type == pygame.KEYDOWN:
 
             if event.key == pygame.K_LEFT:
@@ -73,17 +77,22 @@ def handle_user_events():
             if event.key == pygame.K_RETURN:
                 screen.draw_mines()
                 pygame.event.clear()
-            
+
             if event.key in consts.KEYS_DICT.keys():
                 start = time.time()
+
+
         if event.type == pygame.KEYUP:
             if event.key in consts.KEYS_DICT.keys():
-                end = time.time() 
+                end = time.time()
+                duration = end -start
+                print(duration)
+                end = time.time()
                 duration = start - end
                 if duration <= consts.ONE_SECOND:
-                        save(consts.KEYS_DICT[event.key])
+                    save(consts.KEYS_DICT[event.key])
                 elif duration > consts.ONE_SECOND:
-                         load(consts.KEYS_DICT[event.key])
+                    load(consts.KEYS_DICT[event.key])
 
 
 if __name__ == "__main__":
