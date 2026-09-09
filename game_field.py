@@ -63,9 +63,11 @@ def should_draw_mine(row, col):
     return False
 
 def add_soldier_to_grid():
+    new_grid = copy.deepcopy(grid)
     sol = soldier.soldier
-    if grid[sol["row"]][sol["col"]]==consts.EMPTY_CELL:
-         grid[sol["row"]][sol["col"]]=consts.SOLDIER_CELL
+    if new_grid[sol["row"]][sol["col"]]==consts.EMPTY_CELL:
+         new_grid[sol["row"]][sol["col"]]=consts.SOLDIER_CELL
+    return new_grid
   
 def remove_soldier_from_grid(new_grid):
     sol = soldier.soldier
