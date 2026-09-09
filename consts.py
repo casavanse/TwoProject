@@ -18,6 +18,7 @@ EMPTY_CELL = 0
 MINE_CELL = 1
 FLAG_CELL = 2
 SOLDIER_CELL = 3
+TELEPORT_CELL = 4
 LEFT = (0, -1)
 RIGHT = (0, 1)
 UP = (1, 0)
@@ -39,4 +40,6 @@ DIDNT_MOVE = (0, 0)
 ONE_SECOND = 1
 KEYS_DICT = {pygame.K_1: 0, pygame.K_2: 1, pygame.K_3: 2, pygame.K_4: 3, pygame.K_5: 4, pygame.K_6: 5, pygame.K_7: 6,
              pygame.K_8: 7, pygame.K_9: 8}
+NUM_OF_TELEPORTS = 5
+GUARD_ROWS = BOARD_ROWS // 2
 
