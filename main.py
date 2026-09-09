@@ -10,6 +10,7 @@ import screen
 import time
 import database
 
+start = 0
 soldier.create_soldier()
 game_field.create()
 direction = (0, 0)
