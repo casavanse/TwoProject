@@ -64,6 +64,18 @@ def handle_user_events():
                 screen.draw_mines()
                 pygame.event.clear()
 
+            
+            if event.key in consts.KEYS_DICT:
+                start = time.time()
+            if event.type == pygame.KEYUP:
+                if event.key in consts.KEYS_DICT:
+                    end = time.time() 
+                    duration = start - end
+                    if duration <= consts.ONE_SECOND
+                         
+                
+                    elif duration > consts.ONE_SECOND
+
 
 if __name__ == "__main__":
     main()
