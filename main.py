@@ -22,6 +22,7 @@ pygame.init()
 def main():
     global direction
     screen.draw_game()
+    iteration = 0
     while True:
         handle_user_events()
         legs = soldier.get_soldier_feet()
@@ -41,8 +42,13 @@ def main():
             screen.lose_message()
             pygame.quit()
 
+        if iteration == 200:
+            guard.move()
+            iteration = 0
+
         direction = consts.DIDNT_MOVE
         screen.draw_game()
+        iteration += 1
 
 
 def save(index):

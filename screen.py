@@ -3,7 +3,7 @@ import pygame
 import consts
 import game_field
 import soldier
-from guard import guard
+import guard
 
 screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 
@@ -19,7 +19,7 @@ grass_img = pygame.transform.scale(grass_img, (consts.CELL_SIZE * 2, consts.CELL
 flag_img = pygame.image.load("flag.png").convert_alpha()
 flag_img = pygame.transform.scale(flag_img, (consts.CELL_SIZE * 4, consts.CELL_SIZE * 3))
 
-guard_img = pygame.image.load("guard.png").convert_alpha()
+guard_img = pygame.image.load("snake.png").convert_alpha()
 guard_img = pygame.transform.scale(guard_img, (consts.CELL_SIZE * 2, consts.CELL_SIZE * 4))
 
 grasses = []

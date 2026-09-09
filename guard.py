@@ -11,12 +11,12 @@ def create():
 
 def move():
     global guard
-    if guard["col"] == consts.BOARD_COLS - 1 or guard["col"] == 0:
+    if guard["col"] == consts.BOARD_COLS - 2 or guard["col"] == 0:
         guard["direction"] = not guard["direction"]
     if guard["direction"]:
-        guard["col"] += 1
-    else:
         guard["col"] -= 1
+    else:
+        guard["col"] += 1
 
     guard["screen_x"] = guard["col"] * consts.CELL_SIZE
 
