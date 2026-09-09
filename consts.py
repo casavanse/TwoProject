@@ -34,4 +34,4 @@ UP = (-1, 0)
 DOWN = (1, 0)
 DIDNT_MOVE = (0, 0)
 
-a = 3
+https://stackoverflow.com/questions/40649634/determine-length-of-keypress-in-python

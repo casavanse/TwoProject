@@ -7,7 +7,6 @@ import game_field
 import pygame
 import consts
 import screen
-import time
 
 soldier.create_soldier()
 game_field.create()
