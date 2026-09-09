@@ -67,14 +67,16 @@ def add_soldier_to_grid():
     if grid[sol["row"]][sol["col"]]==consts.EMPTY_CELL:
          grid[sol["row"]][sol["col"]]=consts.SOLDIER_CELL
   
-def remove_soldier_from_grid():
+def remove_soldier_from_grid(new_grid):
     sol = soldier.soldier
     for i in range [len(range)]:
       for j in i [len(i)]:
-        if grid[sol[i][j]=consts.SOLDIER_CELL:
-          grid[sol["row"]][sol["col"]]==consts.EMPTY_CELL
-          load_soldier(i,j)
+        if new_grid[sol[i][j]=consts.SOLDIER_CELL:
+          new_grid[sol["row"]][sol["col"]]==consts.EMPTY_CELL
+          soldier.load_soldier(i,j)
+    global grid
+    grid = new_grid
 
 
-  
+      
   
