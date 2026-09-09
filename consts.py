@@ -37,5 +37,5 @@ UP = (-1, 0)
 DOWN = (1, 0)
 DIDNT_MOVE = (0, 0)
 ONE_SECOND = 1000
-KEYS_DICT = {pygame.K_1: 1, pygame.K_2: 2, pygame.K_3: 3, pygame.K_4: 4, pygame.K_5: 5, pygame.K_6: 6, pygame.K_7: 7,
-             pygame.K_8: 8, pygame.K_9: 9}
+KEYS_DICT = {pygame.K_1: 0, pygame.K_2: 1, pygame.K_3: 2, pygame.K_4: 3, pygame.K_5: 4, pygame.K_6: 5, pygame.K_7: 6,
+             pygame.K_8: 7, pygame.K_9: 8}
