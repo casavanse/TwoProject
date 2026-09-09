@@ -9,6 +9,7 @@ import consts
 import screen
 import time
 import database
+import teleport
 
 start = 0
 soldier.create_soldier()
@@ -37,6 +38,16 @@ def main():
             screen.win_message()
             pygame.quit()
             return
+
+        if teleport.hit_teleport(legs):
+            teleport.teleport_launch(legs)
+            soldier["row"] = legs[0] + 4
+            soldeir["col"] = legs[1] + 4
+            soldier["screen_x"] = soldier["row"] * consts.CELL_SIZE
+            soldier["screen_y"] = soldier["col"] * consts.CELL_SIZE
+
+
+
 
         if guard.hit_guard():
             screen.lose_message()

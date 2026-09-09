@@ -6,7 +6,7 @@ start_position = [(0, 0), (0, 1),
                   (3, 0), (3, 1)]
 
 grid = game_field.grid()
-
+teleport_list = []
 def plant_teleports():
     global grid
     teleports_planted = 0
@@ -16,6 +16,7 @@ def plant_teleports():
         if can_place_teleport(row, col):
             for cell in range(consts.TELEPORT_COLS):
                 grid[row][col + cell] = consts.TELEPORT_CELL
+                teleport_list.append((row,col))
             teleports_planted += 1
 
 
@@ -41,3 +42,9 @@ def should_draw_teleport(row, col):
             return True
     return False
 
+def teleport_launch(current_teleport):
+    global teleport_list
+    for i in range (len(teleport_list)):
+       index = random.randint(0, len(teleport_list) - 1)
+       if teleport_list[index] != current_teleport:
+          return teleport_list[index]
