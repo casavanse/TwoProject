@@ -55,11 +55,11 @@ def main():
 
 def save(index):
     grid_save = game_field.add_soldier_to_grid()
-    database.save(grid_save, index)
+    database.save(grid_save, index, guard.guard)
 
 
 def load(index):
-    new_grid = database.load(index)
+    new_grid, new_guard = database.load(index)
     if new_grid is None:
         return
     game_field.remove_soldier_from_grid(new_grid)
