@@ -1,6 +1,6 @@
-#Yael Ilan and Noam Shmuely
-#331477455
-#331641753
+# Yael Ilan and Noam Shmuely
+# 331477455
+# 331641753
 
 import soldier
 import game_field
@@ -38,19 +38,21 @@ def main():
 
         direction = consts.DIDNT_MOVE
         screen.draw_game()
-        
+
+
 def save(index):
-     grid_save = game_field.add_soldier_to_grid()
-     database.save(grid_save,index)
+    grid_save = game_field.add_soldier_to_grid()
+    database.save(grid_save, index)
+
 
 def load(index):
-     new_grid = database.load(index)
-     game_field.remove = new_grid
+    new_grid = database.load(index)
+    game_field.remove_soldier_from_grid(new_grid)
+
 
 def handle_user_events():
     global direction
     global start
-
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -81,13 +83,11 @@ def handle_user_events():
             if event.key in consts.KEYS_DICT.keys():
                 start = time.time()
 
-
         if event.type == pygame.KEYUP:
             if event.key in consts.KEYS_DICT.keys():
                 end = time.time()
-                duration = end -start
+                duration = end - start
                 if duration <= consts.ONE_SECOND:
-                    print(consts.ONE_SECOND)
                     save(consts.KEYS_DICT[event.key])
                 else:
                     load(consts.KEYS_DICT[event.key])
