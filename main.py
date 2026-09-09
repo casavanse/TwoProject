@@ -75,13 +75,13 @@ def handle_user_events():
             
             if event.key in consts.KEYS_DICT.keys():
                 start = time.time()
-            if event.type == pygame.KEYUP:
-                if event.key in consts.KEYS_DICT.keys():
-                    end = time.time() 
-                    duration = start - end
-                    if duration <= consts.ONE_SECOND:
-                         save(consts.KEYS_DICT[event.key])
-                    elif duration > consts.ONE_SECOND:
+        if event.type == pygame.KEYUP:
+            if event.key in consts.KEYS_DICT.keys():
+                end = time.time() 
+                 duration = start - end
+                if duration <= consts.ONE_SECOND:
+                        save(consts.KEYS_DICT[event.key])
+                elif duration > consts.ONE_SECOND:
                          load(consts.KEYS_DICT[event.key])
 
 
