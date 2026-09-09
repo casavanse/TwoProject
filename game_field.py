@@ -1,6 +1,7 @@
 import pygame
 import consts
 import random
+import soldier
 
 grid = []
 flag_row = consts.BOARD_ROWS - consts.FLAG_ROWS
@@ -61,5 +62,6 @@ def should_draw_mine(row, col):
             return True
     return False
 
-def add_soldier_to_grid(soldier.soldier)
-     grid[soldier[row]][soldier[col]]=consts.SOLDIER_CELL
+def add_soldier_to_grid():
+    sol = soldier.soldier
+    grid[sol["row"]][sol["col"]]=consts.SOLDIER_CELL
