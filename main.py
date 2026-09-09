@@ -94,7 +94,7 @@ def handle_user_events():
                 else:
                     load(consts.KEYS_DICT[event.key])
 
-a = 34
+
 
 
 if __name__ == "__main__":
