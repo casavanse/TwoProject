@@ -18,12 +18,12 @@ def load(index):
     db = load_db()
     i = db[index][0]
     df = json.loads(i)
-    if df == []:
+    if not df:
         return None
     d = pd.DataFrame(df)
     grid = d.values.tolist()
     guard = json.loads(db[index][1])
-    return grid
+    return grid, guard
 
 
 grid = [[1, 2, 3],
@@ -47,7 +47,7 @@ def start_db():
         with open("data.json", "a") as f:
             for _ in range(9):
                 f.write(jdf)
-                f.write(" ")
+                f.write("@")
                 f.write(jguard)
                 f.write("\n")
 
@@ -56,7 +56,7 @@ def load_db():
     with open("data.json", "r") as f:
         lines = f.readlines()
     for i in range(len(lines)):
-        lines[i] = lines[i].split(" ")
+        lines[i] = lines[i].split("@")
         lines[i][1] = lines[i][1][:-1]
     return lines
 
@@ -64,8 +64,18 @@ def load_db():
 def save_db(lines):
     with open("data.json", "w") as f:
         for line in lines:
-            " ".join(line)
+            line = "@".join(line)
             f.write(line + "\n")
 
 start_db()
-load_db()
+
+
+g = [[1,1,1],
+     [2,2,2],
+     [3,3,3]]
+guard = {"row": 0, "col": 0, "screen_x": 0, "screen_y": 0}
+
+save(g, 0, guard)
+g, guard = load(0)
+print(g)
+print(guard)

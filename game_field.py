@@ -3,6 +3,7 @@ import consts
 import random
 import soldier
 import copy
+import teleport
 
 grid = []
 flag_row = consts.BOARD_ROWS - consts.FLAG_ROWS
@@ -20,8 +21,19 @@ def create():
         for col in range(consts.FLAG_COLS):
             grid[row + flag_row][col + flag_col] = consts.FLAG_CELL
     plant_mines()
-    teleport.plant_teleports()
+    plant_teleports()
 
+def plant_teleports():
+    global grid
+    teleports_planted = 0
+    while teleports_planted < consts.NUM_OF_TELEPORTS:
+        row = random.randint(4, consts.BOARD_ROWS - 4)
+        col = random.randint(0, consts.BOARD_COLS - 1)
+        if teleport.can_place_teleport(row, col):
+            for cell in range(consts.TELEPORT_COLS):
+                grid[row][col + cell] = consts.TELEPORT_CELL
+                teleport.teleport_list.append((row,col))
+            teleports_planted += 1
 
 def plant_mines():
     global grid
@@ -61,6 +73,12 @@ def hit_flag(body):
 def should_draw_mine(row, col):
     if grid[row][col] == consts.MINE_CELL:
         if col == 0 or grid[row][col - 1] != consts.MINE_CELL:
+            return True
+    return False
+
+def should_draw_teleport(row, col):
+    if grid[row][col] == consts.TELEPORT_CELL:
+        if col == 0 or grid[row][col - 1] != consts.TELEPORT_CELL:
             return True
     return False
 

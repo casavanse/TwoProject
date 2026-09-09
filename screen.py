@@ -4,6 +4,7 @@ import consts
 import game_field
 import soldier
 import guard
+import teleport
 
 screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 
@@ -22,8 +23,8 @@ flag_img = pygame.transform.scale(flag_img, (consts.CELL_SIZE * 4, consts.CELL_S
 guard_img = pygame.image.load("snake.png").convert_alpha()
 guard_img = pygame.transform.scale(guard_img, (consts.CELL_SIZE * 2, consts.CELL_SIZE * 4))
 
-teleport = pygame.image.load("teleport.png").convert_alpha()
-teleport = pygame.transform.scale(mine, (consts.CELL_SIZE * 3, consts.CELL_SIZE))
+teleport_img = pygame.image.load("teleport.png").convert_alpha()
+teleport_img = pygame.transform.scale(mine, (consts.CELL_SIZE * 3, consts.CELL_SIZE))
 
 grasses = []
 
@@ -38,8 +39,8 @@ def draw_mines():
             pygame.draw.rect(screen, consts.WHITE, rect, 1)
             if game_field.should_draw_mine(row, col):
                 screen.blit(mine, (x, y))
-            if teleport.should_draw_teleport(row, col):
-                screen.blit(teleport, (x,y))
+            if game_field.should_draw_teleport(row, col):
+                screen.blit(teleport_img, (x, y))
 
 
     soldier_x = soldier.soldier["screen_x"]
