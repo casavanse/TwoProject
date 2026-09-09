@@ -8,6 +8,7 @@ import pygame
 import consts
 import screen
 import time
+import database
 
 soldier.create_soldier()
 game_field.create()
