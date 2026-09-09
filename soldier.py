@@ -49,3 +49,13 @@ def get_soldier_feet():
     soldier_feet = [(soldier["row"]+3, soldier["col"]),
                     (soldier["row"]+3, soldier["col"]+1)]
     return soldier_feet
+
+
+
+def load_soldier(row,col):
+    global soldier
+    soldier["row"] = row
+    soldier["col"] = col
+    soldier["screen_y"] = soldier["row"]*consts.CELL_SIZE
+    soldier["screen_x"] = soldier["col"]*consts.CELL_SIZE
+    
