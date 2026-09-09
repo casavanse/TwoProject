@@ -7,6 +7,7 @@ import game_field
 import pygame
 import consts
 import screen
+import time
 
 soldier.create_soldier()
 game_field.create()
@@ -36,11 +37,11 @@ def main():
         direction = consts.DIDNT_MOVE
         screen.draw_game()
         
-def save(index)
+def save(index):
      grid_save = game_field.add_soldier_to_grid()
      database.save(grid_save,index)
 
-def load(index)
+def load(index):
      new_grid = database.load(index)
      game_field.remove = new_grid
 
