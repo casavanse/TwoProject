@@ -86,12 +86,10 @@ def handle_user_events():
             if event.key in consts.KEYS_DICT.keys():
                 end = time.time()
                 duration = end -start
-                print(duration)
-                end = time.time()
-                duration = start - end
                 if duration <= consts.ONE_SECOND:
+                    print(consts.ONE_SECOND)
                     save(consts.KEYS_DICT[event.key])
-                elif duration > consts.ONE_SECOND:
+                else:
                     load(consts.KEYS_DICT[event.key])
 
 

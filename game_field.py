@@ -2,6 +2,7 @@ import pygame
 import consts
 import random
 import soldier
+import copy
 
 grid = []
 flag_row = consts.BOARD_ROWS - consts.FLAG_ROWS
